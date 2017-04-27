@@ -1,4 +1,7 @@
-//Code to estimate pi and display data
+/*
+  Code to estimate pi
+  this is the core function on the program
+*/
 void FindPi(){
   //get data set size
   currentDataSetSize = int(MyButtons.getValue("totalSizeOfDataSet"));
@@ -36,8 +39,8 @@ void FindPi(){
   //find pi based on probability based on x=6/pi^2 where 'x' is probability
   float probability = float(coprimeCounter)/float(currentDataSetSize);
   estimatedPi = sqrt(6/probability);
-  
-  //show it in a arty way
-  
+  //print result
   println("Estimated Pi: ", estimatedPi);
+
+  
 }

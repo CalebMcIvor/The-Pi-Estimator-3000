@@ -1,4 +1,8 @@
-//chage text size based on screen size
+/*
+  Chage text size based on screen size
+  Takes a multiplyer as input then scales
+  depending on screen width
+*/
 int dynamicTextSize(int multiplyer){
   int text = multiplyer * 5;
   int size;

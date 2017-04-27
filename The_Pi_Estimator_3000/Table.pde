@@ -1,4 +1,7 @@
-//code to draw a table
+/*
+  My code to draw a table
+  This generates a 3 column table with an add row function
+*/
 class table{
   void drawTitles(){
     //make table
