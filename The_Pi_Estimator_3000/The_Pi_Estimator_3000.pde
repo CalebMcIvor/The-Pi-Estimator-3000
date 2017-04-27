@@ -1,3 +1,6 @@
+//The Amazing To Do List of Things To do:
+//scale font size, either percent or an if stattement that checks screen width
+//Make sliders for data settings
 int randomNumber1;
 int randomNumber2;
 float pi;
@@ -10,13 +13,31 @@ int upperRangeForDataSet;
 int frameWidth;
 int frameHeight;
 int screenWidth;
+import java.awt.Dimension;
+
 int ScreenHeight;
+
+int dynamicTextSize(int multiplyer){
+  int text = multiplyer * 5;
+  int size;
+  if(width>=1100){
+    return int((55/30)*text);
+  }
+  else if(width<1100){
+    return int(text);
+  }
+  else{
+    return multiplyer * 4;
+  }
+}
 
 void setup() {
   //Default Starting window size
-  size(1600, 800);
+  size(1100, 600);
   //Make the screen resizeable
   surface.setResizable(true);
+  //Make window never be smaller than 1000x400
+
 }
 
 void draw() {
@@ -50,13 +71,22 @@ void draw() {
   text("Data Generator",(width/8),50);
       //slider length
         //Title
-  textSize(20);
+  textSize(dynamicTextSize(4));
   text("Amount Of Data",(width/8),100);
         //slider
 
-       //slider range
-         //title
+      //slider range
+        //title
   text("Range",(width/8),200);
-         //slider
+        //slider
+
+
+
+  //Right Pannel
+    //Raw Data Display
+      //Title text
+  textSize(35);
+  text("Raw Data",(width/8*7),50);
+
 
 }
