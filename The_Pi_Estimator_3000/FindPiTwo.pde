@@ -1,4 +1,8 @@
-//Code to estimate pi and display data
+/*
+  This is a test function to see how accurate I could get
+  Warnig it takes a while to run and to save time it 
+  dosent print the table
+*/
 void FindPiTwo(){
   int a;
   int b;
