@@ -1,15 +1,9 @@
 /*
-  My code to draw a table
+  My code to draw a three column table
   This generates a 3 column table with an add row function
 */
 class table{
   void drawTitles(){
-    //make table
-    //this.Table = new Table();
-    ////make table
-    //this.Table.addColumn("Random Number One");
-    //this.Table.addColumn("Random Number Two");
-    //this.Table.addColumn("Is Coprime");
     //draw titles of columns
     //white
     fill(255);
