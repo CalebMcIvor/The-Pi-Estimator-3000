@@ -1,13 +1,17 @@
 /*
-  This is a test function to see how accurate I could get
-  Warnig it takes a while to run and to save time it 
-  dosent print the table
+  This is a test function to see how accurate I could get to true pi.
+  WARNING! this takes a LONG time to run. In my test on a 16GB RAM, 2.6GHz i7 Processor laptop; it took a few hours
+  and used 30% of processor and over 1GB of RAM, this test was with a data set size of 2000000000. To try a smaller number
+  change the 'currentDataSetSize' variable value. The max value is 2000000000 due to memory issues and the maximum number 
+  that can be stored in an int.
+  Also to save time this function does not print the table due to the amount of processing needed or make arrays due to the amount of memory needed.
+  It only counts the numbers that are coprime.
 */
-void FindPiTwo(){
+void findPiTwo(){
   int a;
   int b;
-  //get data set size
-  currentDataSetSize = 2000000000;
+  //custom data set size
+  currentDataSetSize = 2000000000; //change this value to run a custom value max value is 2000000000
   //reset arrays and counters
   coprimeCounter = 0;
   //fill both arrays with random numbers in the set range

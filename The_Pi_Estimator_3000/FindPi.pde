@@ -2,9 +2,12 @@
   Code to estimate pi
   this is the core function on the program
 */
-void FindPi(){
+void findPi(){
   //get data set size
-  currentDataSetSize = int(MyButtons.getValue("totalSizeOfDataSet"));
+  currentDataSetSize = int(sizeOfDataSet.getValue());
+  //get data upper range
+  upperRangeForDataSet = int(upperRangeOfDataSet.getValue());
+  
   //reset arrays and counters
   coprimeCounter = 0;
   //make two arrays to compare that are the size set in the slider
@@ -33,8 +36,11 @@ void FindPi(){
   }
   //estimate pi
   //print raw results
+  println("---------------------------------------------------");
+  println("Process Complete");
   println("Total Coprimes: ",coprimeCounter);
   println("Total Data Set Size: ",currentDataSetSize);
+  println("Upper Range Used", upperRangeForDataSet); 
   
   //find pi based on probability based on x=6/pi^2 where 'x' is probability
   float probability = float(coprimeCounter)/float(currentDataSetSize);
@@ -42,5 +48,6 @@ void FindPi(){
   //print result
   println("Estimated Pi: ", estimatedPi);
 
-  
+  //say process is finished
+  findPiRunning = false;
 }
