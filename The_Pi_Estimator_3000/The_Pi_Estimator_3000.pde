@@ -1,13 +1,18 @@
 /*
    Estimates Pi based on the probibility that 2 random numbers will be coprime.
    For this I rearranged the formula x=6/pi^2 to pi=squrt(6/x) and x is number
-   of coprimes/total amount of numbers (x=c/n). 
-   I found the best results with a data size of 444500 and upper range of 22300. 
+   of coprimes/total amount of numbers (x=c/n).
+
+   To use the program select a data set size on the left panel. Then select an upper
+   range on the second slider. Lastly to run the calculation, press the 'Estimate Pi' button.
+   The results will be displayed in the middle.
+
+   I found the best results with a data size of 444500 and upper range of 22300.
    This takes me about 15 secounds to run with the above values.
    Version Completed 04/12/2017 (dd/mm/yyyy)
+
    My Info:
    Made By Caleb McIvor
-   Student ID 16945567
    https://github.com/Professor-RED
 */
 //-----Global Variables-----
@@ -60,14 +65,14 @@ void setup() {
   //Setup Screen
   size(1100, 600); //Default Starting window size
   surface.setResizable(true); //Make the screen resizeable
-  
+
   MyButtons = new ControlP5(this); //Define GUI class
   myTable = new table(); //define my table function
-  
+
   //Calculations for button positions
   buttonsWidth = (width/4)-50;
   halfButtonsWidth = buttonsWidth/2;
-  
+
   //amaount of data slider
   sizeOfDataSet = MyButtons.addSlider("totalsizeOfDataSet")
     .setRange(100,1000000)
@@ -76,7 +81,7 @@ void setup() {
     .setNumberOfTickMarks(10)
     .setSliderMode(Slider.FIX)
     .setCaptionLabel("");
-    
+
   //upper range of data set slider
   upperRangeOfDataSet = MyButtons.addSlider("upperRangeOfDataSet")
     .setRange(100,100000)
@@ -85,13 +90,13 @@ void setup() {
     .setNumberOfTickMarks(10)
     .setSliderMode(Slider.FIX)
     .setCaptionLabel("");
-  
+
   //find pi button config
   goButton = MyButtons.addButton("Estimate Pi")
     .setValue(0)
     .setPosition((width/32),250)
     .setSize(200,30);
-    
+
   //reset button config
   resetButton = MyButtons.addButton("Reset")
     .setValue(0)
@@ -109,21 +114,21 @@ void draw() {
   stroke(255); //white stroke to remove boarder of rect
   fill(255); //white fill as background
   rect((width/4),0,((width/4)*3),height); //Squre to color the middle background white
-  
+
   //make buttons responsive
   buttonsWidth = (width/4)-50; //make the button 50px less than the size of each partition leaving 25px spacing
   halfButtonsWidth = buttonsWidth/2; //half the width to find the centre of the objects
-  
+
   //Seperate Parts of GUI
   stroke(0); //black stroke for seperator
   line((width/4),0,(width/4),height); //Make line from top of the screen to bottom 1/4 in
   line(((width/4)*3),0,((width/4)*3),height); //Make line from top of the screen to bottom 3/4 in
-  
+
   //-----Left Pannel-----
   //Data Generator Settings
   //Title text
   fill(255); //white text
-  textSize(35); 
+  textSize(35);
   textAlign(CENTER);
   text("Data Generator",(width/8),50); //print text to screen, centering it in the 1st partition (width/8) and 50px down
   //Amount Of Data
@@ -143,7 +148,7 @@ void draw() {
     .setSize(buttonsWidth,30);
   //Controls title
   text("Controls",(width/8),320);
-  //button to run the calculation function findPi() 
+  //button to run the calculation function findPi()
   goButton
     //dynamically resize and reposition with window size
     .setPosition(((width/8)-halfButtonsWidth),350)
@@ -153,7 +158,7 @@ void draw() {
     //dynamically resize and reposition with window size
     .setPosition(((width/8)-halfButtonsWidth),400)
     .setSize(buttonsWidth,30);
-         
+
   //-----Right Pannel-----
   //Raw Data Display
   //Title text
@@ -168,7 +173,7 @@ void draw() {
   text(estimatedPi + "",(width/4)*2,270); //print my estimated pi
   text("Percentage Accuracy",(width/4)*2,370); //percentage of accuracy title
   //display formula
-  text("Formula",(width/4)*2,500); 
+  text("Formula",(width/4)*2,500);
   textSize(20); //smaller size
   text("Pi=" + "√(6/" + Probability + ")    " + "x=" + Coprimes + "/" + Total,(width/4)*2,550); //formula that adds values as text on first run
 
@@ -177,7 +182,7 @@ void draw() {
     findPi(); //the calculation function
     findPiRunning = true; //Set that the calculaton is running to prevent multiple runs at the same time
   }
-  
+
   //if reset button pressed reset values to default
   if (resetButton.isPressed()){
     estimatedPi = 0; //reset estimated pi so the formula Refresher stops running
@@ -186,18 +191,18 @@ void draw() {
     Coprimes = "Coprimes";
     Total = "Total";
   }
-  
+
   //Refresher (only run if findPi() has run)
   if (estimatedPi > 0){
     //Accuracy
     accuracy = 100 - abs((estimatedPi - pi)/((estimatedPi + pi)/2)*100); //calculate acuracy
     text(accuracy + "%",(width/4)*2,420); //display accuracy
-    
+
     //Set formula values to be that of the last findPi()
     Coprimes = str(coprimeCounter);
     Total = str(currentDataSetSize);
     Probability = str(float(coprimeCounter)/float(currentDataSetSize));
-    
+
     //table
     //only draw table if findPi() has run
     myTable.drawTitles(); //draw titles for table
