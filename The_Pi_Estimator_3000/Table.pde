@@ -3,39 +3,31 @@
   This generates a 3 column table with an add row function
 */
 class table{
+  /*
+    Draws the titles of the table
+  */
   void drawTitles(){
     //draw titles of columns
-    //white
-    fill(255);
-    //Font size
-    textSize(10);
-    //Make coordinate be from 
-    textAlign(CENTER);
+    fill(255); //white text
+    textSize(10); //Font size
+    textAlign(CENTER); //Make coordinate be from centre
     //Draw Text responsively to window size
-    //break screen into 16ths then place text on the 13th column
-    text("Random\nNumber One",(width/16)*13,100);
-    //14th
-    text("Random\nNumber Two",(width/16)*14,100);
-    //15th
-    text("Is Coprime",(width/16)*15,100);
+    text("Random\nNumber One",(width/16)*13,100); //break screen into 16ths then place text on the 13th column
+    text("Random\nNumber Two",(width/16)*14,100); //14th
+    text("Is Coprime",(width/16)*15,100); //15th
   }
+  /*
+    Draws one row then moves y position down, ready for next row.
+  */
   void drawRow(String one, String two, String three) {
-    //counter
-    tableRowCount += 1;
-    //draw row
-    //draw titles of columns
-    //white
-    fill(255);
-    //Font size
-    textSize(10);
-    //Make coordinate be from 
-    textAlign(CENTER);
+    tableRowCount += 1; //counter to keep track of y position down
+    //-----draw row-----
+    fill(255); //white text
+    textSize(10); //Font size
+    textAlign(CENTER); //Make coordinate be from centre
     //Draw Text responsively to window size
-    //break screen into 16ths then place text on the 13th column
-    text(one,(width/16)*13,50*tableRowCount);
-    //14th
-    text(two,(width/16)*14,50*tableRowCount);
-    //15th
-    text(three,(width/16)*15,50*tableRowCount);
+    text(one,(width/16)*13,50*tableRowCount); //break screen into 16ths then place text on the 13th column
+    text(two,(width/16)*14,50*tableRowCount); //14th
+    text(three,(width/16)*15,50*tableRowCount); //15th
   }
 }
