@@ -4,14 +4,12 @@
   link: https://www.programiz.com/c-programming/examples/hcf-gcd
 */
 int gcd(int a, int b){
-  //start at zero
-  int gcd = 0;
+  int gcd = 0; //start at zero
   //itterate through multiples
   for(int i = 1; i <= a & i <= b; i = i + 1){
     // Checks if i is factor of both integers
     if(a%i==0 && b%i==0)
       gcd = i;
     }
-  //return result
-  return gcd;
+  return gcd; //return result
 }
